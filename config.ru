@@ -21,14 +21,15 @@ class App < Hanami::API
   end
 
   post '/evaluate_transaction' do
-    byebug
-    transaction_status = Transaction.new(*transaction_params).status
+    transaction = Transaction.new(**transaction_params)
+    transaction_status = transaction.status
+    transaction.update_previous_transactions
 
-    json(transaction_params.merge(transaction_status: transaction_status))
+    json(transaction_params.merge(transaction_status))
   end
 
   post '/chargeback' do
-    Chargeback.call(chargeback_params)
+    Chargeback.call(**chargeback_params)
 
     json({ status: 'ok' })
   end

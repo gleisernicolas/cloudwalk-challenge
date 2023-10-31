@@ -3,6 +3,7 @@ GEM
   specs:
     byebug (11.1.3)
     connection_pool (2.4.1)
+    csv (3.0.9)
     hanami-api (0.3.0)
       hanami-router (~> 2.0)
     hanami-router (2.0.2)
@@ -30,6 +31,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  csv
   hanami-api
   puma
   redis

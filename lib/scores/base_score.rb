@@ -1,7 +1,7 @@
-class BaseRule
+class BaseScore
   attr_reader :transaction
 
-  def self.decline(transaction)
+  def self.score(transaction)
     self.new(transaction).call
   end
 
